@@ -24,6 +24,11 @@
             max-width: 100%;
             max-height: 100%;
         }
+        .prompt-example {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -31,10 +36,22 @@
 <h1>AI Image Generator by Th.VonVon.Me</h1>
 <input type="text" id="prompt" placeholder="Enter your prompt here" style="width: 300px;">
 <button onclick="generateImage()">Generate Image</button>
+
+<h3>Example Prompts:</h3>
+<ul>
+    <li class="prompt-example" onclick="setPrompt('A beautiful sunset over the ocean')">A beautiful sunset over the ocean</li>
+    <li class="prompt-example" onclick="setPrompt('A futuristic cityscape at night')">A futuristic cityscape at night</li>
+    <li class="prompt-example" onclick="setPrompt('A fantasy world with dragons and castles')">A fantasy world with dragons and castles</li>
+</ul>
+
 <div id="image-container"></div>
 <p id="save-instructions" style="display: none;">To save the image, capture the screen yourself.</p>
 
 <script>
+    function setPrompt(prompt) {
+        document.getElementById('prompt').value = prompt;
+    }
+
     async function generateImage() {
         const prompt = document.getElementById('prompt').value;
         const apiKey = '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'; // Replace with your actual API key
